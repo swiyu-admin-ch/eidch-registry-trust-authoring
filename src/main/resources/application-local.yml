@@ -1,0 +1,32 @@
+# SPDX-FileCopyrightText: 2025 Swiss Confederation
+#
+# SPDX-License-Identifier: MIT
+
+spring:
+  datasource:
+    url: "jdbc:postgresql://localhost:5380/trust-registry-db"
+    username: "postgres"
+    password: "secret"
+  docker:
+    compose:
+      enabled: true
+application:
+  # local testing jwt - valid for the next century
+  # eyJraWQiOiJ0ZXN0a2V5IiwiYWxnIjoiRVMyNTYifQ.eyJleHAiOjQ4ODYyMjkyNjR9.W922r1Zq6qRpb3fhwcSSeMfAfBBaDS-s8QTpLV-_-fBoG-lDmLEXKZIL0LOsJWOXCf1iCexuBBzH9ih04rQcdg
+  enable-jwt-authentication: true
+  authentication-jwks: |
+    {
+      "keys":[
+        {
+          "kty":"EC",
+          "crv":"P-256",
+          "kid":"testkey",
+          "x":"_gHQsZT-CB_KvIfpvJsDxVSXkuwRJsuof-oMihcupQU",
+          "y":"71y_zEPAglUXBghaBxypTAzlNx57KNY9lv8LTbPkmZA"
+        }
+      ]
+    }
+
+logging:
+  level:
+    ch.admin.bit.eid: INFO

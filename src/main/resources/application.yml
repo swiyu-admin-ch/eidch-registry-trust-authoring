@@ -1,0 +1,77 @@
+# SPDX-FileCopyrightText: 2025 Swiss Confederation
+#
+# SPDX-License-Identifier: MIT
+
+server:
+  port: 8380
+
+spring:
+  application:
+    name: trust-registry-authoring-service
+  flyway:
+    locations:
+      - classpath:db/migration/common
+      - classpath:db/migration/postgresql
+    # Flyway creates automatically the default schema if it doesn't exist
+    default-schema: ${spring.jpa.properties.hibernate.default_schema}
+  datasource:
+    hikari:
+      schema: ${spring.jpa.properties.hibernate.default_schema}
+  jpa:
+    properties:
+      hibernate:
+        default_schema: data
+        ddl-auto: validate
+  docker:
+    compose:
+      enabled: false
+springdoc:
+  api-docs:
+    path: /api-docs
+    enabled: "${INTEGRATED_WEB_DOCS_ENABLE:true}"
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: "${INTEGRATED_WEB_DOCS_ENABLE:true}"
+  show-actuator: "${INTEGRATED_WEB_DOCS_ENABLE:true}"
+
+application:
+  enable-jwt-authentication: ${ENABLE_JWT_AUTH:false}
+  authentication-jwks: ${JWKS_ALLOWLIST}
+
+
+jeap:
+  swagger:
+    status: open
+  monitor:
+    prometheus:
+      user: "${PROMETHEUS_USER}"
+      password: "{noop}${PROMETHEUS_PASSWORD}"
+
+cors:
+  allowed-origins: "${CORS_ALLOWED_ORIGINS}"
+
+logging:
+  level:
+    ch.admin.bit.eid: INFO
+
+management:
+  endpoint:
+    health:
+      enabled: true
+      probes:
+        enabled: true
+  health:
+    livenessState:
+      enabled: true
+    readinessState:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health, info, prometheus
+
+monitoring:
+  basic-auth:
+    enabled: ${MONITORING_BASIC_AUTH_ENABLED:false}
+    username: "${MONITORING_BASIC_AUTH_USERNAME:}"
+    password: "${MONITORING_BASIC_AUTH_PASSWORD:}"
