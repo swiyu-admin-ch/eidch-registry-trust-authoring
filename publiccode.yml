@@ -1,0 +1,38 @@
+publiccodeYmlVersion: 0.4.0
+name: swiyu Trust Registry Authoring Service
+applicationSuite: swiyu Trust Infrastructure
+url: https://github.com/swiyu-admin-ch/eidch-registry-trust-authoring
+softwareVersion: 1.1.0
+releaseDate: 2025-03-13
+platforms:
+  - Linux
+categories:
+  - digital-citizenship
+  - identity-management
+usedBy:
+  - Federal Office of Justice
+  - Federal Office of Information Technology, Systems and Telecommunication
+  - Fedpol
+  - Astra
+developmentStatus: beta
+softwareType: standalone/backend
+description:
+  en:
+    localisedName: swiyu Trust Registry Authoring Service
+    shortDescription: Authoring Service for the swiyu Trust Registry
+    longDescription: Entities can prove and maintain their status as verified issuers or verifiers, ensuring additional trust within the ecosystem.
+    apiDocumentation: https://swiyu-admin-ch.github.io/technology-stack/
+    features:
+      - See the verification status of issuers and verifiers in user's wallets
+      - Verifiers are able to validate the trust-status of the issuers.
+legal:
+  license: MIT
+maintenance:
+  type: internal
+localisation:
+  localisationReady: true
+  availableLanguages:
+    - en
+    - de
+    - fr
+    - it
