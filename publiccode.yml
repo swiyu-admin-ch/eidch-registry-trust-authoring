@@ -20,7 +20,7 @@ description:
   en:
     localisedName: swiyu Trust Registry Authoring Service
     shortDescription: Authoring Service for the swiyu Trust Registry
-    longDescription: Entities can prove and maintain their status as verified issuers or verifiers, ensuring additional trust within the ecosystem.
+    longDescription: The Trust Registry provides trust through implementing human-readable measures to support decisions about whether users want to trust actors they interact with or the information they receive. This complements the cryptographic trust provided by the Base Registry. 
     apiDocumentation: https://swiyu-admin-ch.github.io/technology-stack/
     features:
       - See the verification status of issuers and verifiers in user's wallets
@@ -29,6 +29,10 @@ legal:
   license: MIT
 maintenance:
   type: internal
+  contacts:
+   - name: Andre Kunz
+     email: info@swiyu.admin.ch
+     affiliation: Federal Office of Justice
 localisation:
   localisationReady: true
   availableLanguages:
