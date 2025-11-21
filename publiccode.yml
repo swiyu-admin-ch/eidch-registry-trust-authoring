@@ -1,4 +1,4 @@
-publiccodeYmlVersion: 0.4.0
+publiccodeYmlVersion: 0.5.0
 name: swiyu Trust Registry Authoring Service
 applicationSuite: swiyu Trust Infrastructure
 url: https://github.com/swiyu-admin-ch/eidch-registry-trust-authoring
@@ -16,6 +16,9 @@ usedBy:
   - Astra
 developmentStatus: beta
 softwareType: standalone/backend
+organisation:
+  uri: https://ld.admin.ch/office/III.1.2
+  name: Bundesamt für Justiz
 description:
   en:
     localisedName: swiyu Trust Registry Authoring Service
@@ -30,9 +33,9 @@ legal:
 maintenance:
   type: internal
   contacts:
-   - name: Andre Kunz
-     email: info@swiyu.admin.ch
-     affiliation: Federal Office of Justice
+    - name: Andre Kunz
+      email: info@swiyu.admin.ch
+      affiliation: Federal Office of Justice
 localisation:
   localisationReady: true
   availableLanguages:
