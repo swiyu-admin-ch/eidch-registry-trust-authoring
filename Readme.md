@@ -4,76 +4,19 @@ SPDX-FileCopyrightText: 2025 Swiss Confederation
 SPDX-License-Identifier: MIT
 -->
 
-![github-banner](https://github.com/swiyu-admin-ch/swiyu-admin-ch.github.io/blob/main/assets/images/github-banner.jpg)
+# Deprecated - Datastore Services and Libraries
 
-# Datastore Services and Libraries
+This repository will be no longer maintained.
 
-The datastore services are the backbone of the swiss SSI inspired ecosystem.
-This repository does contain the current implementation for the trust registry.
+The code has been divided in different services:
 
-With the trust registry entities can prove and maintain their status as verified issuers or verifiers, ensuring trust
-within the ecosystem. Users will be able to see the verification status of issuers and verifiers in their wallets.
+## swiyu Base Registry
 
-## Table of Contents
+- [swiyu Core Bore Business Service](https://github.com/swiyu-admin-ch/swiyu-core-business-service)
+- [swiyu Registry Identifier Data Service](https://github.com/swiyu-admin-ch/swiyu-registry-identifier-data-service)
+- [swiyu Registry Status Data Service](https://github.com/swiyu-admin-ch/swiyu-registry-status-data-service)
 
-- [Overview](#Overview)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Missing Features and Known Issues](#missing-features-and-known-issues)
-- [Contributions and feedback](#contributions-and-feedback)
-- [License](#license)
+### swiyu Trust Registry
 
-## Overview
-
-For a general overview of the public beta environment and its components, please check
-the [Public Beta context](https://swiyu-admin-ch.github.io/open-source-components/#public-beta).
-
-A datastore service always includes 2 sub services:
-
-1. The authoring service, which essentially provides all the write operations.  
-   Those should only be available to specified authorized systems like the controller system provided by the swiss gov.
-2. The data service, which provides all the protocol conform read operations.
-   Therefore we do require a strict separation of write operations in the code, so while the data models are shared
-   through
-   the shared libraries services and repositories are not shared.
-
-## Installation
-
-> [!NOTE]
-> Starting the service with the local profile does not connect the data and authoring services. It only serves to start this service locally.
-
-To install docker please follow the instructions on the respective pages.
-
-In order to start the service locally, run:
-
-```shell
-docker compose up
-```
-
-Then run:
-
-```shell
-./mvnw spring-boot:run -Dspring-boot.run.profiles=local
-```
-
-The openapi definition can then be found [here](http://localhost:8380/swagger-ui.html)
-
-## Usage
-
-### Auth
-
-The data service is always unprotected as all data on the registers should be readable by everyone.  
-The authoring services do need protection, which is as of now handled by the infrastructure.  
-We do recommend to add mTLS authentication to your infrastructure endpoints.
-
-## Missing Features and Known Issues
-
-The swiyu Public Beta Trust Infrastructure was deliberately released at an early stage to enable future ecosystem participants. The [feature roadmap](https://github.com/orgs/swiyu-admin-ch/projects/1/views/7) shows the current discrepancies between Public Beta and the targeted productive Trust Infrastructure. There may still be minor bugs or security vulnerabilities in the test system. These are marked as [‘KnownIssues’](../../issues) in each repository.
-
-## Contributions and feedback
-
-The code for this repository is developed privately and will be released after each sprint. The published code can therefore only be a snapshot of the current development and not a thoroughly tested version. However, we welcome any feedback on the code regarding both the implementation and security aspects. Please follow the guidelines for contributing found in [CONTRIBUTING.md](/CONTRIBUTING.md).
-
-## License
-
-This project is licensed under the terms of the MIT license. See the [LICENSE](/LICENSE) file for details.
+- [swiyu Registry Trust Data Service](https://github.com/swiyu-admin-ch/swiyu-registry-trust-data-service)
+- swiyu Trust Management Service (not yet published)
